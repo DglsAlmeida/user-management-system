@@ -43,6 +43,8 @@ export const AuthProvider = ({ children }: any) => {
       console.log(token, user);
       localStorage.setItem("@UserManagement:token", token);
       localStorage.setItem("@UserManagement:user", JSON.stringify(user));
+
+      setData({ token, user })
     } else {
       throw new Error("Incorrect user!");
     }
