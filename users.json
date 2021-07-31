@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "token": "JzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ikpva",
+      "user": {
+        "id": 1,
+        "username": "Douglas",
+        "email": "douglas@gmail.com",
+        "password": "12345",
+        "role": "ADMIN"
+      }
+    },
+    {
+      "token": "TY3ODkwIiwibmFtZSI6IkpvajM5MDIyfQ.SflKx",
+      "user": {
+        "id": 2,
+        "username": "Pedro",
+        "email": "pedro@gmail.com",
+        "password": "12345",
+        "role": "USER"
+      }
+    }
+  ]
+}
