@@ -9,8 +9,34 @@ import {
   Title,
 } from "./styles";
 import teamPage from "../../assets/team_page.svg";
+import { useCallback, useContext } from "react";
+import { useForm } from "react-hook-form";
+import AuthContext from "../../context/AuthContext";
+
+interface SignInFormData {
+  email: string;
+  password: string;
+}
 
 export const SignIn = () => {
+
+  const { user, signIn } = useContext(AuthContext);
+
+  console.log(user);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleFormData = useCallback((data: SignInFormData) => {
+    signIn({
+      email: data.email,
+      password: data.password,
+    });
+  }, [signIn]);
+
   return (
     <Container>
       <SignInContainerContent>
@@ -19,11 +45,18 @@ export const SignIn = () => {
         </ImgContainer>
         <Title>Faça seu Login</Title>
         <SignInPageContent>
-          <SignInForm>
-            <Input name="name" type="text" placeholder="Nome" />
-            <Input name="email" type="email" placeholder="E-mail" />
-            <Input name="password" type="password" placeholder="Senha" />
-            <Button>Entrar</Button>
+          <SignInForm onSubmit={handleSubmit(handleFormData)}>
+            <Input
+              type="email"
+              placeholder="E-mail"
+              {...register("email")}
+            />
+            <Input
+              type="password"
+              placeholder="Senha"
+              {...register("password")}
+            />
+            <Button type="submit">Entrar</Button>
           </SignInForm>
         </SignInPageContent>
       </SignInContainerContent>
