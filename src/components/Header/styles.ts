@@ -27,15 +27,16 @@ export const HeaderProfileContent = styled.div`
 export const ContainerImg = styled.div`
   height: 65px;
   margin-right: 20px;
-  
 
   img { 
-    height: 100%;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
   }
 
   @media (max-width: 430px) {
     height: 60px;
+    width: 60px;
   }
 `;
 

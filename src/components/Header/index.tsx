@@ -1,21 +1,34 @@
-import { ButtonLogout, ContainerImg, HeaderContainer, HeaderContent, HeaderProfileContent, ProfileTitle } from "./styles"
-import {BiLogOut} from 'react-icons/bi';
+import {
+  ButtonLogout,
+  ContainerImg,
+  HeaderContainer,
+  HeaderContent,
+  HeaderProfileContent,
+  ProfileTitle,
+} from "./styles";
+import { BiLogOut } from "react-icons/bi";
+import { useAuth } from "../../hooks/AuthContext";
 
 export const Header = () => {
-  return(
+  const { user, signOut } = useAuth();
+
+  return (
     <HeaderContainer>
       <HeaderContent>
         <HeaderProfileContent>
           <ContainerImg>
-            <img src="https://avatars.githubusercontent.com/u/33066367?v=4" alt="Douglas Almeida" />
+            <img
+              src={user?.image}
+              alt={user?.username}
+            />
           </ContainerImg>
           <ProfileTitle>Meu perfil</ProfileTitle>
         </HeaderProfileContent>
 
-        <ButtonLogout>
-          <BiLogOut size={32}/>
+        <ButtonLogout onClick={signOut}>
+          <BiLogOut size={32} />
         </ButtonLogout>
       </HeaderContent>
     </HeaderContainer>
-  )
-}
+  );
+};
