@@ -9,33 +9,40 @@ import {
   Title,
 } from "./styles";
 import teamPage from "../../assets/team_page.svg";
-import { useCallback, useContext } from "react";
+import { useCallback } from "react";
 import { useForm } from "react-hook-form";
-import AuthContext from "../../context/AuthContext";
+import { useAuth } from "../../hooks/AuthContext";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { FiMail } from "react-icons/fi";
+import { BiLockAlt } from "react-icons/bi";
+import * as yup from 'yup';
 
 interface SignInFormData {
   email: string;
   password: string;
 }
 
+const SignInSchema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().required(),
+})
+
 export const SignIn = () => {
+  const { signIn } = useAuth();
 
-  const { user, signIn } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(SignInSchema)
+  });
 
-  console.log(user);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const handleFormData = useCallback((data: SignInFormData) => {
-    signIn({
-      email: data.email,
-      password: data.password,
-    });
-  }, [signIn]);
+  const handleFormData = useCallback(
+    (data: SignInFormData) => {
+      signIn({
+        email: data.email,
+        password: data.password,
+      });
+    },
+    [signIn]
+  );
 
   return (
     <Container>
@@ -47,14 +54,18 @@ export const SignIn = () => {
         <SignInPageContent>
           <SignInForm onSubmit={handleSubmit(handleFormData)}>
             <Input
+              {...register("email")}
+              name="email"
+              icon={FiMail}
               type="email"
               placeholder="E-mail"
-              {...register("email")}
             />
             <Input
+              {...register("password")}
+              name="password"
+              icon={BiLockAlt}
               type="password"
               placeholder="Senha"
-              {...register("password")}
             />
             <Button type="submit">Entrar</Button>
           </SignInForm>
