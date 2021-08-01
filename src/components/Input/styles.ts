@@ -1,14 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const InputContent = styled.input`
+// interface ContainerProps {
+//   isFocused?: boolean;
+//   isFilled?: boolean;
+// }
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
   padding: 17px 24px;
   width: 340px;
+  background: #fff;
   height: 56px;
   border-radius: 12px;
   outline: none;
-  border: 1px solid #000;
+  border: 2px solid #000;
 
-  & + & {
+  & + div {
     margin-top: 8px;
   }
 
@@ -16,4 +24,21 @@ export const InputContent = styled.input`
     width: 300px;
     height: 40px;
   }
+
+  svg {
+    margin-bottom: 3px;
+  }
+
+  input {
+    border: 0;
+    background: transparent !important;
+    margin-left: 8px;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      color: #000;
+    }
+  }
 `;
+

@@ -10,8 +10,12 @@ import {
   TableContainer,
   Table,
 } from "./styles";
+import { useAuth } from "../../hooks/AuthContext";
 
 export const Users = () => {
+  
+  const { user } = useAuth();
+
   return (
     <>
       <Header/>
@@ -19,7 +23,7 @@ export const Users = () => {
         <UsersContent>
           <UserDescription>
             <UsersTitle>Lista de usuários</UsersTitle>
-            <CreateUsersButton>Adicionar um usuário</CreateUsersButton>
+            {user?.role === 'ADMIN' && <CreateUsersButton>Adicionar um usuário</CreateUsersButton>}
           </UserDescription>
           <TableContainer>
             <Table>

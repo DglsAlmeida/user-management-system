@@ -1,12 +1,17 @@
 import { InputHTMLAttributes } from "react";
-import { InputContent } from "./styles";
+import { Container } from "./styles";
+import { IconBaseProps } from "react-icons";
 
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  name: string;
+  icon?: React.ComponentType<IconBaseProps>;
+}
 
-export const Input = ({ children, ...rest }: InputProps) => {
+export const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
   return (
-  <InputContent {...rest}>
-    {children}
-  </InputContent>
+    <Container>
+      {Icon && <Icon size={18} />}
+      <input name={name} {...rest} />
+    </Container>
   );
 };
