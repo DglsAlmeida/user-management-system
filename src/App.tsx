@@ -1,16 +1,17 @@
-// import { Users } from "./pages/Users";
-import { GlobalStyle } from './styles/global';
-import { SignIn } from "./pages/SignIn";
-import { AuthProvider } from './context/AuthContext';
+import { GlobalStyle } from "./styles/global";
+import { BrowserRouter as Router } from "react-router-dom";
+import { AuthProvider } from "./hooks/AuthContext";
+import Routes from "./routes";
 
 const App = () => {
   return (
-  <AuthProvider>
-    <GlobalStyle />
-    <SignIn />
-  </AuthProvider>
-  )
-}
-
+    <Router>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+      <GlobalStyle />
+    </Router>
+  );
+};
 
 export default App;
