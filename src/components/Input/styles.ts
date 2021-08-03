@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components";
 
-// interface ContainerProps {
-//   isFocused?: boolean;
-//   isFilled?: boolean;
-// }
+interface ContainerProps {
+  error?: boolean;
+}
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   padding: 17px 24px;
@@ -19,6 +18,13 @@ export const Container = styled.div`
   & + div {
     margin-top: 8px;
   }
+
+  ${(props) =>
+    props.error &&
+    css`
+      color: red;
+      border-color: red;
+    `}
 
   @media (max-width: 430px) {
     width: 300px;
@@ -41,4 +47,3 @@ export const Container = styled.div`
     }
   }
 `;
-

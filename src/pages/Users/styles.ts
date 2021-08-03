@@ -24,12 +24,18 @@ export const TableContainer = styled.div`
   border-radius: 12px;
   width: 100%;
 
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
   @media (max-width: 600px) {
-    padding: 20px;
+    margin-top: 40px;
+    padding: 5px;
   }
 
   @media (max-width: 430px) {
-    padding: 10px;
+    margin-top: 35px;
+    padding: 3px;
   }
 `;
 
@@ -52,7 +58,7 @@ export const Table = styled.table`
     color: #fff;
     padding: 20px 30px;
   }
-  
+
   td:last-child {
     button {
       border: 0;
@@ -61,6 +67,15 @@ export const Table = styled.table`
       svg {
         color: #fff;
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    th,
+    td {
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 12px;
     }
   }
 
@@ -73,12 +88,32 @@ export const Table = styled.table`
     }
   }
 
+  
+  @media (max-width: 580px) {
+    th,
+    td {
+      color: #fff;
+      padding: 6px 15px;
+      font-size: 12px;
+    }
+  }
+
   @media (max-width: 430px) {
     th,
     td {
       color: #fff;
       padding: 5px 5px;
       font-size: 12px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    th,
+    td {
+      color: #fff;
+      padding: 2px 2px;
+      font-size: 10px;
+      overflow-y: hidden;
     }
   }
 `;
@@ -89,13 +124,9 @@ export const UserDescription = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-`;
 
-export const UsersTitle = styled.span`
-  font-size: 2rem;
-
-  @media (max-width: 600px) {
-    font-size: 1.2rem;
+  div:first-child {
+    height: 48px;
   }
 `;
 
