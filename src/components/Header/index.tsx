@@ -22,7 +22,7 @@ export const Header = () => {
               alt={user?.username}
             />
           </ContainerImg>
-          <ProfileTitle>Meu perfil</ProfileTitle>
+          <ProfileTitle>My Profile</ProfileTitle>
         </HeaderProfileContent>
 
         <ButtonLogout onClick={signOut}>

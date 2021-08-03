@@ -5,11 +5,12 @@ import { IconBaseProps } from "react-icons";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   icon?: React.ComponentType<IconBaseProps>;
+  error?: boolean
 }
 
-export const Input = ({ name, icon: Icon, ...rest }: InputProps) => {
+export const Input = ({ name, icon: Icon, error, ...rest  }: InputProps) => {
   return (
-    <Container>
+    <Container error={error}>
       {Icon && <Icon size={18} />}
       <input name={name} {...rest} />
     </Container>

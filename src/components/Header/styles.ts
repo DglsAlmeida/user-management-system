@@ -38,6 +38,10 @@ export const ContainerImg = styled.div`
     height: 60px;
     width: 60px;
   }
+
+  @media (max-width: 320px) {
+    width: 50px;
+  }
 `;
 
 export const ProfileTitle = styled.a`
