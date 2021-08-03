@@ -7,7 +7,7 @@ import {
 } from "react";
 import api from "../services/api";
 
-interface User {
+export interface User {
   id: number;
   username: string;
   email: string;
@@ -60,7 +60,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
 
     if (userFiltered) {
       const { token, user } = userFiltered;
-      console.log(token, user);
+      delete user.password;
       localStorage.setItem("@UserManagement:token", token);
       localStorage.setItem("@UserManagement:user", JSON.stringify(user));
 
