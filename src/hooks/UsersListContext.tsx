@@ -58,6 +58,7 @@ const UsersProvider = ({ children }: UsersProviderProps) => {
 
       if (index !== -1) {
         usersArray.splice(index, 1);
+        localStorage.setItem('@UsersList:users', JSON.stringify(usersArray));
         setUsersList(usersArray);
       } else {
         console.error("User doesn't exist");
