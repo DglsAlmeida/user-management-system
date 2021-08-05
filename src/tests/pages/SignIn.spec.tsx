@@ -5,7 +5,7 @@ import { SignIn } from "../../pages/SignIn";
 describe("SigIn", () => {
   it("should render correctly", () => {
     render(<SignIn />);
-    expect(screen.getByText("Faça seu Login")).toBeInTheDocument();
+    expect(screen.getByText("Login")).toBeInTheDocument();
   });
 
   it("render 2 input components", () => {
@@ -16,6 +16,6 @@ describe("SigIn", () => {
 
   it("renders a submit button", () => {
     render(<SignIn />);
-    expect(screen.getByText("Entrar")).toBeInTheDocument();
+    expect(screen.getByText("Sign In")).toBeInTheDocument();
   });
 });
