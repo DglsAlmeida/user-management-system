@@ -7,6 +7,10 @@
 - Styled Components
 - Context Api
 
+## Fluxo de trabalho
+
+- Git Flow
+
 ## Funcionalidades 🚀
 
 - [x] A aplicação está praticamente toda responsiva, ficaram poucos detalhes
@@ -17,7 +21,7 @@
 
 ### Users page
 - [x] Interface para pesquisa dos usuários cadastrados
-- [x] Clicando no botão add user aparecera modal para cadastro (CRUD) dos usuários da aplicação
+- [x] Clicando no botão add user aparecera um modal para cadastro (CRUD) dos usuários da aplicação
 - [x] No Header na parte esquerda, existe um link (My Profile) para visualizar o perfil do usuário, podendo alterar a senha e o email
 - [x] No Header na parte direita, existe um botão para sair da aplicação
 - [x] No Header na parte esquerda aparece a foto do usuário logado da aplicação
