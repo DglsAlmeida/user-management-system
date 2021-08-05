@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+# User Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tecnologias :computer:
 
-## Available Scripts
+- React
+- TypeScript
+- Styled Components
+- Context Api
 
-In the project directory, you can run:
+## Fluxo de trabalho
 
-### `yarn start`
+- Git Flow
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Funcionalidades 🚀
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [x] A aplicação está praticamente toda responsiva, ficaram poucos detalhes
 
-### `yarn test`
+### SignIn page
+- [x] A aplicação está protegida por login e senha;
+- [x] 2 tipos de perfis (ADMIN e USER); 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Users page
+- [x] Interface para pesquisa dos usuários cadastrados
+- [x] Clicando no botão add user aparecera um modal para cadastro (CRUD) dos usuários da aplicação
+- [x] No Header na parte esquerda, existe um link (My Profile) para visualizar o perfil do usuário, podendo alterar a senha e o email
+- [x] No Header na parte direita, existe um botão para sair da aplicação
+- [x] No Header na parte esquerda aparece a foto do usuário logado da aplicação
 
-### `yarn build`
+### MyProfile page
+- [x] Alterar o email e a senha
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## O que pode melhorar ? :test_tube:
+- A questão de usabilidade, mostrar pro usuário quando ele digitou um login ou senha inválido
+- Terminar de criar todos os casos de testes, por questão de tempo não criei todos os casos possiveis
+- Não permitir criar um usuário com um email já existente
+- Conseguir alterar a foto do usuário logado na aplicação
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Principais desafios :grimacing:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Os principais desafios foram criar os hooks de autenticação e o de CRUD
 
-### `yarn eject`
+## Estratégia de autenticação :zipper_mouth_face:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para fazer uma aplicação protegida por login e senha, eu criei um context do React, um hook chamado useAuth
+e também criei um componente chamado Route, que ele retorna o Route do react-router-dom, porém esse componente recebe uma propriedade a mais
+chamada isPrivate, a partir dai na hora que a aplicação é iniciada, eu pego o user retornado pelo useAuth, e verifico se existe algum usuário logado na aplicação.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Algumas Regras
+- [x] Rota privada e usuário autenticado - ok
+- [x] Rota privada e usuário não autenticado - Redirecionar para login
+- [x] Rota não privada e usuário autenticado - Redirecionar para lista de usuários
+- [x] Rota não privada e usuário não autenticado - ok
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Métodos retornados pelo hook useAuth 
+- SignIn: Quando o usuário passa o email e a senha na tela de login, ele verifica se existe na API, se sim, ele salva no localStorage
+- signOut: Remove o usuário atual do localStorage
+- user: retorna os dados do atual usuário logado na aplicação
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usuários de teste 
 
-## Learn More
+- ADMIN: 
+email: "douglas@gmail.com",
+password: "202020",
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- USER: 
+email: "pedro@gmail.com",
+password: "202020",
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Como utilizar :bangbang:
+
+Clone o repositorio
+- ``git clone https://github.com/DglsAlmeida/user-management-system.git``
+
+Entre na raiz do repositório clonado
+- Rode ``yarn`` para instalar as dependências
+
+- Depois rode ``yarn start``
+
+- Por padrão a aplicação vai rodar em ``http://localhost:3000``
+
+E para iniciar a API fake, rode em outro terminal:
+
+- ``yarn server``
