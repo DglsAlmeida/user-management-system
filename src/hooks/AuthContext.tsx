@@ -30,6 +30,7 @@ interface AuthContextData {
   user?: User;
   signIn: (credentials: SignInCredentials) => Promise<void>;
   signOut: () => void;
+  updateUser: (data: object) => void;
 }
 
 interface AuthProviderProps {
@@ -54,19 +55,19 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     const response = await api.get("users");
 
     const userFiltered = response.data.find(
-      (user: any) =>
-        user.user.email === email && user.user.password === password
+      (user: any) => user.email === email && user.password === password
     );
 
     if (userFiltered) {
-      const { token, user } = userFiltered;
+      const { token, id, email, password, image, role } = userFiltered;
+      const user = { id, email, password, image, role };
       delete user.password;
       localStorage.setItem("@UserManagement:token", token);
       localStorage.setItem("@UserManagement:user", JSON.stringify(user));
 
       setData({ token, user });
     } else {
-      console.error("Incorrect user!");
+      console.error('Incorrect user!')
     }
   }, []);
 
@@ -77,8 +78,27 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     setData({} as AuthState);
   }, []);
 
+  const updateUser = useCallback(async ({ id, email, password }) => {
+    const response = await api.get("users");
+
+    const checkIfUserExist = response.data.find((user: any) => user.id === id);
+
+    if (checkIfUserExist) {
+      try {
+        await api.patch(`/users/${id}`, {
+          email,
+          password,
+        });
+      } catch (err) {
+        throw new Error(err);
+      }
+    }
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ user: data.user, signIn, signOut, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

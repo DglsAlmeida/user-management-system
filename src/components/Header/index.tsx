@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ButtonLogout,
   ContainerImg,
@@ -17,12 +18,11 @@ export const Header = () => {
       <HeaderContent>
         <HeaderProfileContent>
           <ContainerImg>
-            <img
-              src={user?.image}
-              alt={user?.username}
-            />
+            <img src={user?.image} alt={user?.username} />
           </ContainerImg>
-          <ProfileTitle>My Profile</ProfileTitle>
+          <ProfileTitle to="my-profile">My Profile</ProfileTitle>
+
+          <ProfileTitle to="users-list">Users List</ProfileTitle>
         </HeaderProfileContent>
 
         <ButtonLogout onClick={signOut}>

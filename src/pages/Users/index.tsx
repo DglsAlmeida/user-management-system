@@ -1,4 +1,3 @@
-// import { Input } from "../../components/Input";
 import { Header } from "../../components/Header";
 import { BsTrash } from "react-icons/bs";
 import {
@@ -67,7 +66,7 @@ export const Users = () => {
             )}
           </UserDescription>
           <TableContainer>
-            <Table>
+            <Table data-testid="users-table">
               <thead>
                 <tr>
                   <th>Name</th>

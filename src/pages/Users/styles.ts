@@ -127,6 +127,16 @@ export const UserDescription = styled.div`
 
   div:first-child {
     height: 48px;
+
+    @media (max-width: 580px) {
+      width: 180px;
+      height: 32px;
+    }
+
+    @media (max-width: 430px) {
+      width: 150px;
+      height: 32px;
+    }
   }
 `;
 

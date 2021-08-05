@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
@@ -44,9 +45,16 @@ export const ContainerImg = styled.div`
   }
 `;
 
-export const ProfileTitle = styled.a`
+export const ProfileTitle = styled(Link)`
   font-size: 1.2rem;
+  text-align: left;
   cursor: pointer;
+  text-decoration: none;
+  color: #000;
+
+  & + a {
+    margin-left: 15px;
+  }
 
   @media (max-width: 600px) {
     font-size: 1rem;
