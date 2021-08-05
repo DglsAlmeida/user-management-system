@@ -55,7 +55,7 @@ export const SignIn = () => {
         <ImgContainer>
           <img src={teamPage} alt="team page logo" />
         </ImgContainer>
-        <Title>Faça seu Login</Title>
+        <Title>Login</Title>
         <SignInPageContent>
           <SignInForm onSubmit={handleSubmit(handleFormData)}>
             <Input
@@ -76,7 +76,7 @@ export const SignIn = () => {
               type="password"
               placeholder="Senha"
             />
-            <Button type="submit">Entrar</Button>
+            <Button type="submit">Sign In</Button>
           </SignInForm>
         </SignInPageContent>
       </SignInContainerContent>
