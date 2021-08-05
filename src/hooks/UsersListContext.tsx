@@ -23,7 +23,6 @@ interface UsersContextData {
   addUser: (newUser: Users) => void;
   removeUser: (userId: string) => void;
   usersList: Users[];
-  // updateUser: () => void;
 }
 
 const UsersContext = createContext<UsersContextData>({} as UsersContextData);
@@ -66,8 +65,6 @@ const UsersProvider = ({ children }: UsersProviderProps) => {
     },
     [usersList]
   );
-
-  // const updateUser = useCallback(() => {}, []);
 
   return (
     <UsersContext.Provider value={{ usersList, addUser, removeUser }}>
