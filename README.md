@@ -7,7 +7,7 @@
 - Styled Components
 - Context Api
 
-## Fluxo de trabalho
+## Fluxo de trabalho :bookmark_tabs:
 
 - Git Flow
 
@@ -65,6 +65,12 @@ password: "202020",
 - USER: 
 email: "pedro@gmail.com",
 password: "202020",
+
+## Rodas os testes :female_detective:
+
+- ``yarn jest --coverage``
+
+terá um arquivo index.html, dentro da pasta coverage, você pode abrir ele no browser e conferir a cobertura de testes
 
 ## Como utilizar :bangbang:
 
