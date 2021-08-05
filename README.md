@@ -37,7 +37,7 @@
 
 ## Principais desafios :grimacing:
 
-- Os dois principais desafios foram criar os hooks de autenticação e o de CRUD
+- Os principais desafios foram criar os hooks de autenticação e o de CRUD
 
 ## Estratégia de autenticação :zipper_mouth_face:
 
